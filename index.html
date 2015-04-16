@@ -18,6 +18,10 @@
   </style>
 </head>
 <body>
+  <div>
+    <h1>Lights in India
+      <span id="day">1</span>/<span id="month">1</span>/2012</h1>
+  </div>
   <div id="map"></div>
 
   <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
@@ -84,6 +88,8 @@
           canvasTiles.month = 1;
         }
       }
+      $("#day").text(canvasTiles.day);
+      $("#month").text(canvasTiles.month);
       canvasTiles.redraw();
     }, 2000);
   </script>

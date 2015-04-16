@@ -63,7 +63,7 @@
         var rows = data.rows;
         for (var i = 0; i < rows.length; ++i) {
           ctx.globalAlpha=rows[i].opacity;
-          ctx.fillRect(rows[i].x, rows[i].y, 5, 5);
+          ctx.fillRect(rows[i].x, rows[i].y, zoom, zoom);
         }
       }));
     };

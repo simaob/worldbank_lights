@@ -61,9 +61,10 @@
       cartoSQL.execute(sql, _.bind(function(data) {
         if (data.rows.length === 0) {return;}
         var rows = data.rows;
+        var size = Math.max(5, zoom);
         for (var i = 0; i < rows.length; ++i) {
           ctx.globalAlpha=rows[i].opacity;
-          ctx.fillRect(rows[i].x, rows[i].y, zoom, zoom);
+          ctx.fillRect(rows[i].x, rows[i].y, size, size);
         }
       }));
     };

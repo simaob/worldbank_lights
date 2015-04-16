@@ -70,13 +70,16 @@
 
     canvasTiles.addTo(map);
 
+    var monthsWithThirty = [4, 6, 9, 11];
     var myInterval = setInterval(function() {
-      if(canvasTiles.day < 31) {
-        canvasTiles.day = canvasTiles.day + 1;
+      var month = canvasTiles.month;
+      var day = canvasTiles.day;
+      if(day < 29 || (monthsWithThirty.indexOf(month) > 0 && day < 30) || day < 31) {
+        canvasTiles.day = day + 1;
       } else {
         canvasTiles.day = 1;
-        if(canvasTiles.month < 12) {
-          canvasTiles.month = canvasTiles.month + 1;
+        if(month < 12) {
+          canvasTiles.month = month + 1;
         } else {
           canvasTiles.month = 1;
         }

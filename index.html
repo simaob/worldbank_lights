@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>World Bank Lights</title>
+  <title>Village Light</title>
   <!-- based on leaflet quick example: http://leafletjs.com/examples/quick-start-example.html -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
 </head>
 <body>
   <div>
-    <h1>Lights in India
+    <h1>Village Light in India
       <span id="day">1</span>/<span id="month">1</span>/2012</h1>
   </div>
   <div id="map"></div>
@@ -62,13 +62,18 @@
           day: this.day
       });
       ctx.fillStyle = 'yellow';
+      var size = Math.max(5, pixel_zoom);
       cartoSQL.execute(sql, _.bind(function(data) {
         if (data.rows.length === 0) {return;}
         var rows = data.rows;
-        var size = Math.max(5, zoom);
         for (var i = 0; i < rows.length; ++i) {
           ctx.globalAlpha=rows[i].opacity;
-          ctx.fillRect(rows[i].x, rows[i].y, size, size);
+          context.beginPath();
+          context.arc(rows[i].x, rows[i].y, size, 0, 2 * Math.PI, false);
+          context.fill();
+          context.lineWidth = 5;
+          context.strokeStyle = '#003300';
+          context.stroke();
         }
       }));
     };

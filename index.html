@@ -38,7 +38,6 @@
 
     canvasTiles.drawTile = function(canvas, tilePoint, zoom) {
       var ctx = canvas.getContext('2d');
-      ctx.fillStyle = 'red';
       var cartoSQL = new cartodb.SQL({
         user: 'simbiotica'
       });

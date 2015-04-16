@@ -68,12 +68,12 @@
         var rows = data.rows;
         for (var i = 0; i < rows.length; ++i) {
           ctx.globalAlpha=rows[i].opacity;
-          context.beginPath();
-          context.arc(rows[i].x, rows[i].y, size, 0, 2 * Math.PI, false);
-          context.fill();
-          context.lineWidth = 5;
-          context.strokeStyle = '#003300';
-          context.stroke();
+          ctx.beginPath();
+          ctx.arc(rows[i].x, rows[i].y, size, 0, 2 * Math.PI, false);
+          ctx.fill();
+          ctx.lineWidth = 5;
+          ctx.strokeStyle = '#003300';
+          ctx.stroke();
         }
       }));
     };
